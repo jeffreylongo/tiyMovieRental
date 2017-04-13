@@ -58,10 +58,32 @@ namespace tiyMovieRental.Services
                     "[GenreId]) VALUES(@Name, @YearReleased, @Director)";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
-                cmd.Parameters.AddWithValue("@Contents", newMovie.Name);
-                cmd.Parameters.AddWithValue("@GiftHint", newMovie.YearReleased);
-                cmd.Parameters.AddWithValue("@ColorWrappingPaper", newMovie.Director);
-                cmd.Parameters.AddWithValue("@Height", newMovie.GenreId);
+                cmd.Parameters.AddWithValue("@Name", newMovie.Name);
+                cmd.Parameters.AddWithValue("@YearReleased", newMovie.YearReleased);
+                cmd.Parameters.AddWithValue("@Director", newMovie.Director);
+                cmd.Parameters.AddWithValue("@GenreId", newMovie.GenreId);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+
+        //edit movie method
+        public void EditMovie(Movies movie, int id)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var query = @"UPDATE Movies SET
+                [Name] = @Name
+                ,[YearReleased] = @YearReleased
+                ,[Director] = @Director
+                ,[GenreId] = @GenreId
+                WHERE Id = @Id";
+                var cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Name", movie.Id);
+                cmd.Parameters.AddWithValue("@YearReleased", movie.YearReleased);
+                cmd.Parameters.AddWithValue("@Director", movie.Director);
+                cmd.Parameters.AddWithValue("@GenreId", movie.GenreId);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
