@@ -55,7 +55,7 @@ namespace tiyMovieRental.Services
             using (var connection = new SqlConnection(ConnectionString))
             {
                 var query = "INSERT INTO Movies ([Name], [YearReleased], [Director], " +
-                    "[GenreId]) VALUES(@Name, @YearReleased, @Director)";
+                    "[GenreId]) VALUES(@Name, @YearReleased, @Director, @GenreId)";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("@Name", newMovie.Name);
