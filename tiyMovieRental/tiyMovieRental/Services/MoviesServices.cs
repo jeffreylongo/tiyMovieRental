@@ -88,5 +88,19 @@ namespace tiyMovieRental.Services
                 connection.Close();
             }
         }
+
+        //delete movie method
+        public void DeleteMovie(int id)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var cmd = new SqlCommand("DELETE FROM Movies WHERE ID=@Id", connection);
+                cmd.Parameters.AddWithValue("@Id", id);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+            }
+        }
     }
 }
