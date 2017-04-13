@@ -102,5 +102,21 @@ namespace tiyMovieRental.Services
 
             }
         }
+
+        //check out movie method.
+        public void CheckOutMovie(int id)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var cmd = new SqlCommand(@"UPDATE Movies SET
+                [IsCheckedOut] = @IsCheckedOut WHERE Id = @Id", connection);
+                cmd.Parameters.AddWithValue("@IsCheckedOut", true);
+                cmd.Parameters.AddWithValue("@Id", id);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+
+        }
     }
 }
