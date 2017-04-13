@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using tiyMovieRental.Services;
 
 namespace tiyMovieRental.Controllers
 {
@@ -11,7 +12,10 @@ namespace tiyMovieRental.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View();
+            //get all gifts
+            var movies = new MoviesServices().GetAllMovies();
+            //pass them to the view
+            return View(movies);
         }
     }
 }

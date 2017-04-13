@@ -9,8 +9,8 @@ namespace tiyMovieRental.Services
 {
     public class MoviesServices
     {
-        //get all gifts method
         const string ConnectionString = @"Server=localhost\SQLEXPRESS;Database=tiyMovieRental;Trusted_Connection=True;";
+        //get all gifts method
         public List<Movies> GetAllMovies()
         {
             var rv = new List<Movies>();
