@@ -48,5 +48,23 @@ namespace tiyMovieRental.Services
             }
             return movie;
         }
+
+        //add new movie method
+        public void AddMovie(Movies newMovie)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var query = "INSERT INTO Movies ([Name], [YearReleased], [Director], " +
+                    "[GenreId]) VALUES(@Name, @YearReleased, @Director)";
+                var cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Contents", newMovie.Name);
+                cmd.Parameters.AddWithValue("@GiftHint", newMovie.YearReleased);
+                cmd.Parameters.AddWithValue("@ColorWrappingPaper", newMovie.Director);
+                cmd.Parameters.AddWithValue("@Height", newMovie.GenreId);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }
