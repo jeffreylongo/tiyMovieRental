@@ -81,7 +81,7 @@ namespace tiyMovieRental.Services
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("@Id", movie.Id);
-                cmd.Parameters.AddWithValue("@Name", movie.Id);
+                cmd.Parameters.AddWithValue("@Name", movie.Name);
                 cmd.Parameters.AddWithValue("@YearReleased", movie.YearReleased);
                 cmd.Parameters.AddWithValue("@Director", movie.Director);
                 cmd.Parameters.AddWithValue("@GenreId", movie.GenreId);
