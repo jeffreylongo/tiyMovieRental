@@ -85,5 +85,21 @@ namespace tiyMovieRental.Controllers
             new MoviesServices().DeleteMovie(id);
             return RedirectToAction("Index");
         }
+
+        //get the movie to check out. 
+        [HttpGet]
+        public ActionResult Open(int id)
+        {
+            var movie = new MoviesServices().GetMovie(id);
+            return View(movie);
+        }
+
+        //post for check out movie
+        [HttpPost]
+        public ActionResult Open(int id, FormCollection collection)
+        {
+            new MoviesServices().CheckOutMovie(id);
+            return RedirectToAction("Index");
+        }
     }
 }
