@@ -39,8 +39,33 @@ namespace tiyMovieRental.Controllers
                 GenreId = int.Parse(collection["GenreId"]),
 
             };
-            // TODO: Put into db
             new MoviesServices().AddMovie(newMovie);
+            return RedirectToAction("Index");
+        }
+
+        //get movie for edit. 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var movie = new MoviesServices().GetMovie(id);
+            return View(movie);
+        }
+
+        //edit movie
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            var updatedMovie = new Movies
+            {
+                Name = collection["Name"],
+                YearReleased = int.Parse(collection["YearReleased"]),
+                Director = collection["Director"],
+                GenreId = int.Parse(collection["GenreId"]),
+                Id = id
+            };
+            //save to database
+            //display correct page. 
+            new MoviesServices().EditMovie(updatedMovie, id);
             return RedirectToAction("Index");
         }
     }
