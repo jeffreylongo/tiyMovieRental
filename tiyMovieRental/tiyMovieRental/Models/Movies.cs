@@ -25,5 +25,9 @@ namespace tiyMovieRental.Models
             this.GenreId = (int)reader["GenreId"];
 
         }
+
+        public Movies()
+        {
+        }
     }
 }
