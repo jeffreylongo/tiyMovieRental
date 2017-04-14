@@ -54,14 +54,15 @@ namespace tiyMovieRental.Services
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var query = "INSERT INTO Movies ([Name], [YearReleased], [Director], " +
-                    "[GenreId]) VALUES(@Name, @YearReleased, @Director, @GenreId)";
+                var query = "INSERT INTO Movies ([Name], [YearReleased], [Director], [IsCheckedOut]" +
+                    "[GenreId]) VALUES(@Name, @YearReleased, @Director, @GenreId), @IsCheckedOut";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("@Name", newMovie.Name);
                 cmd.Parameters.AddWithValue("@YearReleased", newMovie.YearReleased);
                 cmd.Parameters.AddWithValue("@Director", newMovie.Director);
                 cmd.Parameters.AddWithValue("@GenreId", newMovie.GenreId);
+                cmd.Parameters.AddWithValue("@IsCheckedOut", newMovie.IsCheckedOut);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
@@ -77,6 +78,7 @@ namespace tiyMovieRental.Services
                 ,[YearReleased] = @YearReleased
                 ,[Director] = @Director
                 ,[GenreId] = @GenreId
+                ,[IsCheckedOut] = @IsCheckedOut
                 WHERE Id = @Id";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
@@ -85,6 +87,7 @@ namespace tiyMovieRental.Services
                 cmd.Parameters.AddWithValue("@YearReleased", movie.YearReleased);
                 cmd.Parameters.AddWithValue("@Director", movie.Director);
                 cmd.Parameters.AddWithValue("@GenreId", movie.GenreId);
+                cmd.Parameters.AddWithValue("@IsCheckedOut", movie.IsCheckedOut);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
