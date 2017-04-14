@@ -41,6 +41,31 @@ namespace tiyMovieRental.Controllers
             new CustomersServices().AddCustomer(newCustomer);
             return RedirectToAction("Index");
         }
+
+        //get customer for edit. 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var customer = new CustomersServices().GetCustomer(id);
+            return View(customer);
+        }
+
+        //edit customer
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            var updatedCustomer = new Customers
+            {
+                Name = collection["Name"],
+                PhoneNumber = int.Parse(collection["PhoneNumber"]),
+                Email = collection["Email"],
+                Id = id
+            };
+            //save to database
+            //display correct page. 
+            new CustomersServices().EditCustomer(updatedCustomer, id);
+            return RedirectToAction("Index");
+        }
     }
 
 }
