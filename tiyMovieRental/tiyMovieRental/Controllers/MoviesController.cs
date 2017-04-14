@@ -101,5 +101,21 @@ namespace tiyMovieRental.Controllers
             new MoviesServices().CheckOutMovie(id);
             return RedirectToAction("Index");
         }
+
+        //get the movie to check in. 
+        [HttpGet]
+        public ActionResult Close(int id)
+        {
+            var movie = new MoviesServices().GetMovie(id);
+            return View(movie);
+        }
+
+        //post for check in movie
+        [HttpPost]
+        public ActionResult Close(int id, FormCollection collection)
+        {
+            new MoviesServices().CheckInMovie(id);
+            return RedirectToAction("Index");
+        }
     }
 }
