@@ -63,5 +63,25 @@ namespace tiyMovieRental.Services
                 connection.Close();
             }
         }
+        //edit customer method
+        public void EditCustomer(Customers customer, int id)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                var query = @"UPDATE Customers SET
+                [Name] = @Name
+                ,[PhoneNumber] = @PhoneNumber
+                ,[Email] = @Email
+                WHERE Id = @Id";
+                var cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.Parameters.AddWithValue("@Id", customer.Id);
+                cmd.Parameters.AddWithValue("@Name", customer.Name);
+                cmd.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNumber);
+                cmd.Parameters.AddWithValue("@Email", customer.Email);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }
