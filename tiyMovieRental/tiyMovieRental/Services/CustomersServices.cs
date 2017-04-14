@@ -52,8 +52,8 @@ namespace tiyMovieRental.Services
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var query = "INSERT INTO Customers ([Name], [PhoneNumber], [Email]" +
-                    "VALUES(@Name, @PhoneNumber, @Email";
+                var query = "INSERT INTO Customers ([Name], [PhoneNumber], [Email])" +
+                    "VALUES(@Name, @PhoneNumber, @Email)";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("@Name", newCustomer.Name);

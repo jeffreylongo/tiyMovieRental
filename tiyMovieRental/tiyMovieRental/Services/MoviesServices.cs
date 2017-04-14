@@ -54,15 +54,14 @@ namespace tiyMovieRental.Services
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var query = "INSERT INTO Movies ([Name], [YearReleased], [Director], [IsCheckedOut]" +
-                    "[GenreId]) VALUES(@Name, @YearReleased, @Director, @GenreId), @IsCheckedOut";
+                var query = "INSERT INTO Movies ([Name], [YearReleased], [Director], " +
+                    "[GenreId]) VALUES(@Name, @YearReleased, @Director, @GenreId)";
                 var cmd = new SqlCommand(query, connection);
                 connection.Open();
                 cmd.Parameters.AddWithValue("@Name", newMovie.Name);
                 cmd.Parameters.AddWithValue("@YearReleased", newMovie.YearReleased);
                 cmd.Parameters.AddWithValue("@Director", newMovie.Director);
                 cmd.Parameters.AddWithValue("@GenreId", newMovie.GenreId);
-                cmd.Parameters.AddWithValue("@IsCheckedOut", newMovie.IsCheckedOut);
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }

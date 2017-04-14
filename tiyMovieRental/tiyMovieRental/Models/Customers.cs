@@ -10,14 +10,14 @@ namespace tiyMovieRental.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
         public Customers(SqlDataReader reader)
         {
             this.Id = (int)reader["Id"];
             this.Name = reader["Name"].ToString();
-            this.PhoneNumber = (int)reader["PhoneNumber"];
+            this.PhoneNumber = reader["PhoneNumber"].ToString();
             this.Email = reader["Email"].ToString();
 
         }

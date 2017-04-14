@@ -34,7 +34,7 @@ namespace tiyMovieRental.Controllers
             var newCustomer = new Customers
             {
                 Name = collection["Name"],
-                PhoneNumber = int.Parse(collection["PhoneNumber"]),
+                PhoneNumber = collection["PhoneNumber"],
                 Email = collection["Email"],
 
             };
@@ -57,7 +57,7 @@ namespace tiyMovieRental.Controllers
             var updatedCustomer = new Customers
             {
                 Name = collection["Name"],
-                PhoneNumber = int.Parse(collection["PhoneNumber"]),
+                PhoneNumber = (collection["PhoneNumber"]),
                 Email = collection["Email"],
                 Id = id
             };
