@@ -15,7 +15,7 @@ namespace tiyMovieRental.Models
         public int YearReleased { get; set; }
         public string Director { get; set; }
         public int GenreId { get; set; }
-        public bool IsCheckedOut { get; set; }
+        public bool? IsCheckedOut { get; set; }
 
         public Movies(SqlDataReader reader)
         {
@@ -24,7 +24,7 @@ namespace tiyMovieRental.Models
             this.YearReleased = (int)reader["YearReleased"];
             this.Director = reader["Director"].ToString();
             this.GenreId = (int)reader["GenreId"];
-            this.IsCheckedOut = (bool)reader["IsCheckedOut"];
+            this.IsCheckedOut = reader["IsCheckedOut"] as bool?;
 
         }
 
