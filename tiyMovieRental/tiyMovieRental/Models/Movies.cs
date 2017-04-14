@@ -24,7 +24,7 @@ namespace tiyMovieRental.Models
             this.YearReleased = (int)reader["YearReleased"];
             this.Director = reader["Director"].ToString();
             this.GenreId = (int)reader["GenreId"];
-            this.IsCheckedOut = (bool)reader["IsChecked"];
+            this.IsCheckedOut = (bool)reader["IsCheckedOut"];
 
         }
 
