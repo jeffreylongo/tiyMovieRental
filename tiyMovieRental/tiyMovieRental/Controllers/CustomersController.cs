@@ -66,6 +66,22 @@ namespace tiyMovieRental.Controllers
             new CustomersServices().EditCustomer(updatedCustomer, id);
             return RedirectToAction("Index");
         }
+
+        //get customer for delete. 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var customer = new CustomersServices().GetCustomer(id);
+            return View(customer);
+        }
+
+        //delete customer
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            new CustomersServices().DeleteCustomer(id);
+            return RedirectToAction("Index");
+        }
     }
 
 }
