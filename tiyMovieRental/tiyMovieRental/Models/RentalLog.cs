@@ -18,7 +18,7 @@ namespace tiyMovieRental.Models
         {
             this.Id = (int)reader["Id"];
             this.CustomerId = (int)reader["CustomerId"];
-            this.MovieId = (int)reader["YearReleased"];
+            this.MovieId = (int)reader["MovieId"];
             this.DateCheckedOut = (DateTime)reader["DateChekedOut"];
             this.DueDate = (DateTime)reader["DueDate"];
 
