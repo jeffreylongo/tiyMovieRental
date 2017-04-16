@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: darkblue;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -37,9 +38,16 @@ textarea {
 
 .navbar-collapse.collapse {
     background-color: darkblue;
+    color: darkblue;
 }
 
-.container {
+
+.navbar-inverse .navbar-nav > li > a {
+    background-color: darkblue;
+    color: #f4bf42;
+}
+
+.navbar-inverse {
     background-color: darkblue;
 }
 
@@ -80,4 +88,12 @@ label {
 
 img {
     background-color: darkblue;
+}
+
+th {
+    color: #f4bf42;
+}
+
+td {
+    color: #f4bf42;
 }
