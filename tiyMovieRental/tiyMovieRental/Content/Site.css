@@ -22,3 +22,75 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-header {
+    background-color: #f4bf42;
+}
+
+.navbar-toggle {
+    background-color: darkblue;
+}
+
+.navbar-collapse.collapse {
+    background-color: #f4bf42;
+}
+
+.container {
+    background-color: darkblue;
+}
+
+h2 {
+    color: #f4bf42;
+}
+
+p {
+    color: #f4bf42;
+}
+
+p.lead {
+    color: darkblue;
+}
+
+h1 {
+    color: darkblue;
+}
+
+.jumbotron {
+    background-color: #f4bf42;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:  center;
+}
+
+a {
+    color: #f4bf42;
+}
+
+h4 {
+    color: #f4bf42;
+}
+
+label {
+    color: #f4bf42;
+}
+
+
+.navbar-inverse .navbar-nav > li > a {
+    color: darkblue;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+        color: blue;
+}
+
+th {
+    color: #f4bf42;
+}
+
+tr {
+    color: #f4bf42;
+}
+
+td a {
+    color: #f4bf42;
+}
