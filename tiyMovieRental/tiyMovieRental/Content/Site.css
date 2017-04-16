@@ -24,15 +24,19 @@ textarea {
 }
 
 .navbar-header {
-    background-color: #f4bf42;
+    background-color: darkblue;
 }
 
 .navbar-toggle {
     background-color: darkblue;
 }
 
-.navbar-collapse.collapse {
+.navbar-toggle.collapsed {
     background-color: #f4bf42;
+}
+
+.navbar-collapse.collapse {
+    background-color: darkblue;
 }
 
 .container {
@@ -74,23 +78,6 @@ label {
     color: #f4bf42;
 }
 
-
-.navbar-inverse .navbar-nav > li > a {
-    color: darkblue;
-}
-
-.navbar-inverse .navbar-nav > li > a:hover {
-        color: blue;
-}
-
-th {
-    color: #f4bf42;
-}
-
-tr {
-    color: #f4bf42;
-}
-
-td a {
-    color: #f4bf42;
+img {
+    background-color: darkblue;
 }
